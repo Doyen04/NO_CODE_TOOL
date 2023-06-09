@@ -4,14 +4,19 @@ import './App.css';
 import Editor from './component/Editor'; 
 
 function App() {
+    const [page, setPage] = useState([<Editor/>])
+    const [pageCount, setpageCount] = useState(1)//plan to remove
+    const [currentPage, setcurrentPage] = useState(0)
     return(
         <div className='App-container'>
             <Header>
-                <MenuItem prop={'red'}/>
-                <MenuItem prop={'rew'}/>
+                <MenuItem prop={'red'} pagearray={page} current={pageCount} pagesetter={setPage} countsetter={setpageCount}/>
+                {/* <MenuItem prop={'rew'}/> */}
             </Header>
-            <Editor/>
-            <Header/>
+            {page[currentPage]}
+            {/* <Editor/> */}
+            <Header children={pageCount}/>
+
         </div> 
     )
 }
@@ -21,9 +26,14 @@ function Header({children}) {
         <div className='header'>{children}</div>
     )
 }
-function MenuItem({prop}) {
+function MenuItem({prop,pagearray, current, pagesetter, countsetter}) {
+    function handleclick(ev) {
+        pagesetter([...pagearray,<Editor/>])
+        countsetter(current + 1)
+        // setcurrentPage(current)
+    }
     return (
-        <div className='menu-items'>{prop}</div>
+        <div className='menu-items' onClick={handleclick}>{prop}</div>
     )
 }
 

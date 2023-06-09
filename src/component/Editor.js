@@ -8,7 +8,7 @@ import tableicon from '../svg/table.svg'
 
 import SideBar from './Sidebar'
 import PropertyBar from './PropertyBar'
-import Canvas from './Canvas'
+import CanvasContainer from './CanvasContainer'
 
 
 export default function Editor() {
@@ -19,23 +19,23 @@ export default function Editor() {
     {child:"cxv", type:"tool"}, {child:"wsa", type:"tool"}, {child:"qwe", type:"tool"},
     {child:"asd", type:"tool"}, {child:"sax", type:"tool"}, {child:"rfd", type:"tool"},
     ]
-    let rightButtonData = [
-    {child:"black", type:"color"},{child:"grey", type:"color"},{child:"white", type:"color"},
-    {child:"gold", type:"color"},{child:"cyan", type:"color"},{child:"red", type:"color"},
-    {child:"green", type:"color"},{child:"lime", type:"color"},{child:"yellow", type:"color"},
-    {child:"crimson", type:"color"},{child:"brown", type:"color"},{child:"pink", type:"color"},
-    {child:"purple", type:"color"},{child:"indigo", type:"color"},{child:"goldenrod", type:"color"},
-    {child:"magenta", type:"color"},{child:"violet", type:"color"},{child:"peach", type:"color"},
-    {child:"darkblue", type:"color"},{child:"le", type:"custom"},
-    ]
+    // let rightButtonData = [
+    // {child:"black", type:"color"},{child:"grey", type:"color"},{child:"white", type:"color"},
+    // {child:"gold", type:"color"},{child:"cyan", type:"color"},{child:"red", type:"color"},
+    // {child:"green", type:"color"},{child:"lime", type:"color"},{child:"yellow", type:"color"},
+    // {child:"crimson", type:"color"},{child:"brown", type:"color"},{child:"pink", type:"color"},
+    // {child:"purple", type:"color"},{child:"indigo", type:"color"},{child:"goldenrod", type:"color"},
+    // {child:"magenta", type:"color"},{child:"violet", type:"color"},{child:"#56381d", type:"color"},
+    // {child:"darkblue", type:"color"},{child:"le", type:"custom"},
+    // ]
 
     return(
         <div className='editor-container'>
             <SideBar array={leftButtonData}  />
             <PropertyBar/>
-            <Canvas/>
+            <CanvasContainer/>
             <PropertyBar/>
-            <SideBar array={rightButtonData}/>
+            {/* <SideBar array={rightButtonData}/> */}
         </div>
     )
 }

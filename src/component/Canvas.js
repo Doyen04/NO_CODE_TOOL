@@ -1,7 +1,6 @@
 
-
-export default function Canvas( ) {
+export default function Canvas(params) {
     return(
-        <div className='canvas-container'>ffff </div>
+        <div className="canvas"></div>
     )
 }

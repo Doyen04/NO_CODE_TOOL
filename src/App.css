@@ -5,10 +5,14 @@
     /* font-size: calc(10px + 2vmax); */
     --header: 30px;
     --side-bar: 40px;
-    --property-bar: 250px;
-    --border-width: 1px solid rgb(90, 89, 89);
+    --property-bar: 300px;
+    --border-width: 1px solid rgb(53, 58, 65);
     --editor-first: rgb(67, 74, 83);
     --editor-second: #282c34;
+    --tool-hover-color: #010618 ;
+    --top-ruler-height: 25px;
+    --left-ruler-width: 25px;
+    --unit-toggle: 25px;
 }
 
 .header {
@@ -37,10 +41,16 @@
     height: 5%;
     border-radius: 0;
     border: none;
-    border-bottom: var(--border-width);
-    background-color: var(--editor-second);
+    /* border-bottom: var(--border-width); */
+    /* #343a46 */
+    /* #16181d#040d30 */
+    background-color: inherit;
     display: flex;
     justify-content: center;
+    border-radius: 5px;
+}
+.tool-button:hover{
+    background-color: var(--tool-hover-color);
 }
 .button-icon{
     width: 80%;
@@ -61,8 +71,61 @@
 }
 .canvas-container {
     --total-side:calc(var(--side-bar) * 2);
-    --total-property-bar: calc(var(--property-bar) * 2);
+    --total-property-bar: calc(var(--property-bar));
     width: calc(100% - calc(var(--total-side) + var(--total-property-bar)) );
-    background-color: #3134288a;
+    height: 100%; 
+    background-color: #8aa5388a;
     border: var(--border-width);
+}
+.horizontal-ruler-container{
+    background-color: var(--editor-second);
+    width: 100%;
+    height: var(--top-ruler-height);
+    border-bottom: var(--border-width);
+    display: flex;
+}
+.unit-toggle{
+    width: var(--unit-toggle);
+    height: 100%;
+    background-color: inherit;
+    border-right: var(--border-width);
+}
+.vertical-ruler-container{
+    width: var(--left-ruler-width) ;
+    height: 100%;
+    background-color: var(--editor-second);
+    border-right: var(--border-width);
+}
+.vertical-ruler-canvas-container{
+    display: flex;
+    height: calc(100% - var(--top-ruler-height));
+    width: 100%;
+    background-color: grey;
+}
+.canvas{
+    background-image:
+        linear-gradient(0deg,
+            var(--n) 0%, var(--n) 9px,
+            var(--b) 9px, var(--b) 10px, var(--n) 10px, var(--n) 19px,
+            var(--t) 19px, var(--t) 20px, var(--n) 20px, var(--n) 29px,
+            var(--t) 29px, var(--t) 30px, var(--n) 30px, var(--n) 39px,
+            var(--t) 39px, var(--t) 40px, var(--n) 40px, var(--n) 49px,
+            var(--t) 49px, var(--t) 50px),
+        linear-gradient(-90deg,
+            var(--n) 0%, var(--n) 9px,
+            var(--b) 9px, var(--b) 10px, var(--n) 10px, var(--n) 19px,
+            var(--t) 19px, var(--t) 20px, var(--n) 20px, var(--n) 29px,
+            var(--t) 29px, var(--t) 30px, var(--n) 30px, var(--n) 39px,
+            var(--t) 39px, var(--t) 40px, var(--n) 40px, var(--n) 49px,
+            var(--t) 49px, var(--t) 50px);
+    background-size: 50px 50px;
+}
+.canvas{
+    --c: #58c;
+    --b: rgba(255, 255, 255, 0.267);
+    --t: rgba(255, 255, 255, 0.144);
+    --n: transparent;
+    width: calc(100% - var(--left-ruler-width));
+    height: 100%;
+    background-color: grey;
 }
